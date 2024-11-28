@@ -19,14 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class MemberJpaRepositoryTest {
 
-    private static final Logger log = LoggerFactory.getLogger(MemberJpaRepositoryTest.class);
-    @Autowired MemberJpaRepository memberJpaRepository;
+    @Autowired MemberRepository memberJpaRepository;
 
     @Test
     public void testMember() {
         Member member = new Member("memberA");
         Member savedMember = memberJpaRepository.save(member);
-        Member findMember = memberJpaRepository.find(savedMember.getId());
+        Member findMember = memberJpaRepository.findById(savedMember.getId()).get();
 
         assertThat(findMember.getId()).isEqualTo(member.getId());
         assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
