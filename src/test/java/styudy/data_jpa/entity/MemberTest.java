@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
-@Rollback(value = false)
+//@Rollback(value = false)
 @SpringBootTest
 class MemberTest {
 
